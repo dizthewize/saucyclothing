@@ -5,10 +5,18 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import { connect } from 'react-redux'
+import * as actions from './actions';
 import Layout from './components/Layout'
 import NotFound from './components/NotFound'
 
 class App extends Component {
+
+  componentDidMount() {
+    const { getCustomers } = this.props
+    getCustomers()
+  }
+
   render() {
     return (
       <div className="App">
@@ -31,4 +39,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, actions)(App);
