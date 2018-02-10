@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const bodyParser =  require('body-parser');
 // uncomment keys if using env variables
 // const keys = require('../config/keys');
+
+mongoose.Promise = global.Promise;
+// mongoose.connect(keys.mongoURI);
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
