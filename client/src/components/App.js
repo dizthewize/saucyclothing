@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import {
   BrowserRouter,
   Route,
   Switch
 } from 'react-router-dom';
 import { connect } from 'react-redux'
-import * as actions from './actions';
-import Layout from './components/Layout'
-import NotFound from './components/NotFound'
-import NavBar from './components/Navbar';
+import * as actions from '../actions';
+import Layout from './Layout'
+import NotFound from './NotFound'
+import NavBar from './Navbar';
 
 class App extends Component {
 

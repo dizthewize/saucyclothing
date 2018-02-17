@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import Customers from './customers/customers'
 
 class Layout extends Component {
