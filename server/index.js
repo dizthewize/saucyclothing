@@ -22,6 +22,7 @@ require('./services/passport')(passport);
 // import routes
 require ('./routes/web')(app);
 require ('./routes/authRoutes')(app);
+require ('./routes/adminRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

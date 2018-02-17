@@ -9,12 +9,15 @@ import { connect } from 'react-redux'
 import * as actions from './actions';
 import Layout from './components/Layout'
 import NotFound from './components/NotFound'
+import NavBar from './components/Navbar';
 
 class App extends Component {
 
   componentDidMount() {
-    const { getCustomers } = this.props
-    getCustomers()
+    const { getCustomers, adminUsers, getUser } = this.props;
+    getCustomers();
+    adminUsers();
+    getUser();
   }
 
   render() {
@@ -22,10 +25,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
+            <NavBar />
             <div>
               <Switch>
                 <Route path='/' component={Layout} />
@@ -40,6 +40,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state);
   return state;
 }
 

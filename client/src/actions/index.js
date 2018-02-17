@@ -1,9 +1,11 @@
+import axios from 'axios';
 import {
   ADD_CUSTOMERS,
   REGISTER_USER,
   LOGIN_USER,
-  CURRENT_USER
- } from './types'
+  CURRENT_USER,
+  ADMIN_USERS
+ } from './types';
 
 export const getCustomers = () => dispatch => {
   return fetch('/api/customers')
@@ -11,20 +13,26 @@ export const getCustomers = () => dispatch => {
     .then(customers => dispatch({type: ADD_CUSTOMERS, payload: customers}))
 }
 
-export const registerUser = values => dispatch => {
+export const registerUser = values => async dispatch => {
   const res = await axios.post('/api/register', values);
 
   dispatch({ type: REGISTER_USER })
 }
 
-export const loginUser = values => dispatch => {
+export const loginUser = values => async dispatch => {
   const res = await axios.post('/api/login', values);
 
   dispatch({ type: LOGIN_USER })
 }
 
-export const getUser = () => dispatch => {
-  const res = await axios.post('/api/current_user');
+export const getUser = () => async dispatch => {
+  const res = await axios.get('/api/current_user');
 
   dispatch({type: CURRENT_USER, payload: res.data});
+}
+
+export const adminUsers = () => async dispatch => {
+  const res = await axios.get('/api/admin/users');
+
+  dispatch({type: ADMIN_USERS, payload: res.data});
 }

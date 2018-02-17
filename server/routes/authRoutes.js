@@ -1,7 +1,7 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const User = mongoose.model('users')
+const User = mongoose.model('users');
 
 module.exports = app => {
   app.post('/api/login', (req, res, next) => {
