@@ -1,0 +1,18 @@
+@import 'scss/reset';
+@import 'scss/vars';
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@import 'scss/navbar';
+@import 'scss/queries';

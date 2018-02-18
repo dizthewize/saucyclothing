@@ -9,15 +9,16 @@ class NavBar extends Component {
         return;
       case false:
         return (
-          <ul>
-            <li><NavLink to="/login" activeClassName="active">Login</NavLink></li>
-            <li><NavLink to="/register" activeClassName="active">Register</NavLink></li>
+          <ul id="nav-items">
+            <li className="nav-item nav-link"><NavLink to="/login" activeClassName="active">Login</NavLink></li>
+            <li className="nav-item nav-link"><NavLink to="/register" activeClassName="active">Register</NavLink></li>
           </ul> 
         );
       default:
         return (
-          <ul>
-            <li><a href="/api/logout">Logout</a></li>
+          <ul id="nav-items">
+            <li className="nav-item">Welcome {this.props.user.firstName}</li>
+            <li className="nav-item nav-link"><a href="/api/logout">Logout</a></li>
           </ul>
         );
     }
@@ -26,7 +27,7 @@ class NavBar extends Component {
     return (
       <nav>
         <div className="logo">
-          <Link to="/"><h2>Hello</h2></Link>
+          <Link to="/" className="nav-link"><h2>Hello</h2></Link>
         </div>
         {this.renderHeader()}
       </nav>

@@ -5,7 +5,7 @@ const User = mongoose.model('users');
 
 module.exports = app => {
   app.post('/api/login', (req, res, next) => {
-    passport.authenticate('local')(req,res,next)
+    passport.authenticate('local')(req,res,next);
   });
 
   app.post('/api/register', (req, res) => {

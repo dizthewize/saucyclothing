@@ -6,7 +6,7 @@ class Customers extends Component {
   renderCustomers = (customerInfo) => {
     const customers = Object.values(customerInfo)
     return customers.map(customer => {
-      return <li key={customer.id}>{ customer.firstName } { customer.lastName }</li>
+      return <li key={customer.id} className="customer">{ customer.firstName } { customer.lastName }</li>
     })
   }
 

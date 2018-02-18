@@ -19,9 +19,11 @@ export const registerUser = values => async dispatch => {
   dispatch({ type: REGISTER_USER })
 }
 
-export const loginUser = values => async dispatch => {
+export const loginUser = (values, history) => async dispatch => {
+  console.log(values);
   const res = await axios.post('/api/login', values);
 
+  history.push('/');
   dispatch({ type: LOGIN_USER })
 }
 

@@ -1,8 +1,9 @@
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../../config/keys');
-const User = mongoose.model('users');
 const bcrypt = require('bcryptjs');
+
+const User = mongoose.model('users');
 
 module.exports = passport => {
   passport.serializeUser((user, done) => {
@@ -10,9 +11,10 @@ module.exports = passport => {
   });
   
   passport.deserializeUser((id, done) => {
-    User.findById(id).then(user => {
-      done(null, user);
-    });
+    User.findById(id)
+      .then(user => {
+        done(null, user);
+      });
   });
 
   passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
@@ -21,19 +23,23 @@ module.exports = passport => {
       email:email
     }).then(user => {
       if (!user) {
-        return done(null, false)
+        return done(null, false);
       }
 
-      // Match password
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if(err) throw err;
+      // Check if hash and password match one another
+      // const result = bcrypt.compareSync(password, user.password);
+      // console.log(result);
 
-        if (isMatch) {
-          return done(null, user)
+     // Match password
+      bcrypt.compare(password, user.password, (err, res) => {
+        if(err) throw err;
+        if (res === true) {
+          return done(null, user);
         } else {
-          return done(null, false)
+          console.log('It did not work');
+          return done(null, false);
         }
       })
     })
-  }))
+  }));
 };

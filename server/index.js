@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser =  require('body-parser');
+const cookieSession = require('cookie-session');
 const passport = require('passport')
 // uncomment keys if using env variables
 const keys = require('../config/keys');
@@ -9,6 +10,12 @@ const keys = require('../config/keys');
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys:[keys.cookieKey]
+  })
+);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
