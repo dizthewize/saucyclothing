@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { NavLink,
-         Link,
-         withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class DropMenu extends Component {

@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class NavBar extends Component {
+
   renderHeader = () => {
     switch (this.props.user) {
       case null:
@@ -17,12 +18,13 @@ class NavBar extends Component {
       default:
         return (
           <ul id="nav-items">
-            <li className="nav-item">Welcome {this.props.user.firstName}</li>
+            <li className="nav-item"><h3>Welcome <span style={{textTransform: 'uppercase'}}>{this.props.user.firstName}</span></h3></li>
             <li className="nav-item nav-link"><a href="/api/logout">Logout</a></li>
           </ul>
         );
     }
   }
+  
   render() {
     return (
       <nav>

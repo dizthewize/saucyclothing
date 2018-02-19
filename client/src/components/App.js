@@ -10,19 +10,20 @@ import Layout from './Layout'
 import NotFound from './NotFound'
 import NavBar from './Navbar';
 import DropMenu from './DropMenu';
-import LoginForm from './LoginForm';
+import LoginForm from './forms/LoginForm';
+import RegisterForm from './forms/RegisterForm';
 
 class App extends Component {
 
   componentDidMount() {
-    const { getCustomers, adminUsers, getUser } = this.props;
+    const { getCustomers, adminUsers, getUser, user } = this.props;
     getCustomers();
     adminUsers();
     getUser();
   }
-
+  
+  
   render() {
-    const { loginUser } = this.props;
     return (
       <div className="App">
         <BrowserRouter>
@@ -33,6 +34,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Layout} />
                 <Route path='/login' component={LoginForm} />
+                <Route path='/register' component={RegisterForm}/>
                 <Route component={NotFound} />
               </Switch>
             </div>

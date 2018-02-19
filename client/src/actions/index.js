@@ -1,8 +1,6 @@
 import axios from 'axios';
 import {
   ADD_CUSTOMERS,
-  REGISTER_USER,
-  LOGIN_USER,
   CURRENT_USER,
   ADMIN_USERS
  } from './types';
@@ -16,15 +14,13 @@ export const getCustomers = () => dispatch => {
 export const registerUser = values => async dispatch => {
   const res = await axios.post('/api/register', values);
 
-  dispatch({ type: REGISTER_USER })
+  dispatch({ type: CURRENT_USER, payload: res.data });
 }
 
-export const loginUser = (values, history) => async dispatch => {
-  console.log(values);
+export const loginUser = values => async dispatch => {
   const res = await axios.post('/api/login', values);
 
-  history.push('/');
-  dispatch({ type: LOGIN_USER })
+  dispatch({ type: CURRENT_USER, payload: res.data })
 }
 
 export const getUser = () => async dispatch => {

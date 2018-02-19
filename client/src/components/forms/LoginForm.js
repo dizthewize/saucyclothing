@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { withFormik, Form, Field } from "formik";
 import Yup from "yup";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 const Login = ({
   values,
@@ -11,7 +11,7 @@ const Login = ({
   touched,
   isSubmitting
 }) => (
-  <Form>
+  <Form style={{textAlign: 'center', marginTop: '2rem'}}>
     <div>
       { touched.email && errors.email && <p>{errors.email}</p>}
       <Field type="email" name="email" placeholder="Email" />
@@ -38,14 +38,16 @@ const FormikForm = withFormik({
     password: Yup.string().min(7, 'Password must be 7 characters or longer').required('Password is required')
   }),
   handleSubmit(values, {  props, resetForm, setErrors, setSubmitting }) {
+    const { history } = props;
+
     setTimeout(() => {
       if (values.email && values.password) {
-        const history = props.history;
-        props.loginUser(values, history);
+        props.loginUser(values);
         resetForm();
       }
       setSubmitting(false);
     }, 2000);
+
   }
 })(Login);
 
@@ -53,7 +55,10 @@ const LoginForm = (props) => {
   const { loginUser, history } = props;
   return (
     <Fragment>
-      <FormikForm loginUser={loginUser} history={history} />
+      <FormikForm 
+        loginUser={loginUser}
+        history={history}
+      />
     </Fragment>
   );
 }
