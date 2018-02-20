@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withFormik, Form, Field } from "formik";
 import Yup from "yup";
 import { withRouter, Redirect } from 'react-router-dom';
@@ -38,7 +38,6 @@ const FormikForm = withFormik({
     password: Yup.string().min(7, 'Password must be 7 characters or longer').required('Password is required')
   }),
   handleSubmit(values, {  props, resetForm, setErrors, setSubmitting }) {
-    const { history } = props;
 
     setTimeout(() => {
       if (values.email && values.password) {
@@ -51,16 +50,31 @@ const FormikForm = withFormik({
   }
 })(Login);
 
-const LoginForm = (props) => {
-  const { loginUser, history } = props;
-  return (
-    <Fragment>
-      <FormikForm 
-        loginUser={loginUser}
-        history={history}
-      />
-    </Fragment>
-  );
+class LoginForm extends Component {
+
+  handleLogin = values => {
+    const { loginUser, user, history } = this.props;
+
+    if (values) {
+      loginUser(values);
+      history.push('/');
+    }
+  }
+  
+  render() {
+    return (
+      <Fragment>
+        <FormikForm 
+          loginUser={this.handleLogin}
+        />
+      </Fragment>
+    );
+  }
 }
 
-export default connect(null, actions)(withRouter(LoginForm));
+const mapStateToProps = ({ user }) => {
+  return { user };
+}
+
+
+export default connect(mapStateToProps, actions)(withRouter(LoginForm));

@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class NavBar extends Component {
+  
 
   renderHeader = () => {
     switch (this.props.user) {

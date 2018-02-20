@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withFormik, Form, Field } from "formik";
 import Yup from "yup";
 import { withRouter } from 'react-router-dom';
@@ -61,16 +61,28 @@ const FormikForm = withFormik({
   }
 })(Register);
 
-const RegisterForm = (props) => {
-  const { registerUser, history } = props;
-  return (
-    <Fragment>
-      <FormikForm 
-        registerUser={registerUser}
-        history={history}
-      />
-    </Fragment>
-  );
+class RegisterForm extends Component {
+  handleRegister = values => {
+    const { registerUser, loginUser, user, history } = this.props;
+    const userLogin = {
+      email: values.email,
+      password: values.password
+    }
+
+    if (values) {
+      // use async function to run register then login
+    }
+  }
+  
+  render() {
+    return (
+      <Fragment>
+        <FormikForm 
+          registerUser={this.handleRegister}
+        />
+      </Fragment>
+    );
+  }
 }
 
 const mapStateToProps = ({ user }) => {
