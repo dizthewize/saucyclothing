@@ -16,7 +16,7 @@ I broke it down in simple steps to get you going.
 **Install Nodemon globally or local**:
 If global install for future use of nodemon use [-g] in command. If using local then run in root project folder
 
-  npm install -g nodemon || npm install nodemon
+    npm install -g nodemon || npm install nodemon
 
  **Install node and express packages**:
 On the root of this project run on your terminal (if you want you can do this with yarn but thats optional)
