@@ -16,8 +16,7 @@ import RegisterForm from './forms/RegisterForm';
 class App extends Component {
 
   componentDidMount() {
-    const { getCustomers, adminUsers, getUser, user } = this.props;
-    getCustomers();
+    const { adminUsers, getUser, user } = this.props;
     adminUsers();
     getUser();
   }

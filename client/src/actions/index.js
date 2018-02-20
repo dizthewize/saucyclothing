@@ -5,12 +5,6 @@ import {
   ADMIN_USERS
  } from './types';
 
-export const getCustomers = () => dispatch => {
-  return fetch('/api/customers')
-    .then(res => res.json())
-    .then(customers => dispatch({type: ADD_CUSTOMERS, payload: customers}))
-}
-
 export const registerUser = values => async dispatch => {
   const res = await axios.post('/api/register', values);
 

@@ -14,5 +14,14 @@ a {
   text-decoration: none;
 }
 
+.layout {
+  h2 {
+    margin-top: 3rem;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
 @import 'scss/navbar';
 @import 'scss/queries';
