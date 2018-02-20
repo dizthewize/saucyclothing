@@ -41,9 +41,9 @@ Two essential keys that need to be created is the mongodb or mlab connection pat
 
 **Start both Express server and React**
 
-  npm run dev
+    npm run dev
 
 **Start sass/scss compiler**:
 Create second terminal window to run compiler
 
-  npm run build-css
+    npm run build-css
