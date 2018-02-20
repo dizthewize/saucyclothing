@@ -27,8 +27,9 @@ On the root of this project run on your terminal (if you want you can do this wi
 **Install client side packages**:
 Install client folder packages by running npm install inside the client folder
 
-  cd client
-  npm install
+    cd client
+    
+    npm install
 
  **Create env file[dev.js] in config folder**:
 Two essential keys that need to be created is the mongodb or mlab connection path and a self-created cookie key which can be any character string of choice like what I input for the value. DO NOT FORGET to add file to .gitignore file so keys will not be shown to others
