@@ -1,6 +1,6 @@
 # React-Node-Starter-Kit-2018
 
-So I built this full stack starter kit for web developers using both Node with Create-React-App/Redux on the front end... The goal is to save you time from setting up a backend, user model, and user authentication. Passport-local and bcryptjs are used together to pull the user info and hash the password. Reducers are already set up for the global state of users and an admin reducer to show all users in the global state. A navbar component is already set up with both login and register forms created to handle the dispatch actions to the backend which will create a new user in and login a user. Sass/SCSS compiler script and package already setup as well
+So I built this full stack starter kit for web developers using both Node with Create-React-App/Redux on the front end... The goal is to save you time from setting up a backend, user model, and user authentication. Passport-local and bcryptjs are used together to pull the user info and hash the password. Reducers are already set up for the global state of users and an admin reducer to show all users in the global state. A navbar component is already set up with both login and register forms created to handle the dispatch actions to the backend which will create a new user and login a user. Sass/SCSS compiler script and package already setup as well
 
 I broke it down in simple steps to get you going.
 
