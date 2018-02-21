@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import ImgSlider from './Slider';
 
 class Layout extends Component {
   
   render() {
     return (
       <div className="layout">
-        <h2>Welcome</h2>
+        <ImgSlider />
       </div>
     );
   }

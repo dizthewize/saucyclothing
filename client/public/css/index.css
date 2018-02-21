@@ -137,6 +137,10 @@ ul {
 body {
   font: 16px/1.5 "Open", sans-serif, Arial, Helvetica; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 a {
   text-decoration: none;
   color: #ffffff; }
