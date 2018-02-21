@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Open+Sans:400,700");
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -133,8 +134,12 @@ ul {
   list-style: none;
   padding: 0; }
 
+body {
+  font: 16px/1.5 "Open", sans-serif, Arial, Helvetica; }
+
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #ffffff; }
 
 .layout h2 {
   margin-top: 3rem;
@@ -143,26 +148,57 @@ a {
   font-weight: bold; }
 
 nav {
-  background: #35424a;
+  position: relative;
+  background: #00BBF0;
   color: #ffffff;
-  min-height: 70px;
-  border-bottom: #e8491d 3px solid; }
-  nav .logo {
+  min-height: 50px; }
+  nav a.active, nav a:hover {
+    transition: all .3s ease-in;
+    color: #00204A; }
+  nav #nav-logo {
+    position: absolute;
+    left: 44%; }
+    nav #nav-logo #logo h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      font-family: "Lato", sans-serif;
+      transition: transform 1s; }
+      nav #nav-logo #logo h2:hover {
+        transform: scale(1.1); }
+  nav .nav-links .nav-item {
     float: left;
-    margin: 10px 0 0 10px; }
-    nav .logo a {
-      font-size: 3rem; }
-  nav #nav-items {
-    float: right; }
-    nav #nav-items .nav-item {
-      display: inline;
-      float: left;
-      padding: 0 15px;
-      margin-top: 25px; }
-      nav #nav-items .nav-item a {
-        color: #ffffff;
-        text-transform: uppercase;
-        font-size: 16px; }
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase; }
+    nav .nav-links .nav-item.left {
+      margin-right: 10px; }
+    nav .nav-links .nav-item.right {
+      margin-right: 10px; }
+      nav .nav-links .nav-item.right:first-of-type {
+        margin-right: 15px; }
+      nav .nav-links .nav-item.right:nth-child(2) {
+        margin-right: 17px; }
+      nav .nav-links .nav-item.right.cart {
+        position: relative;
+        cursor: pointer; }
+        nav .nav-links .nav-item.right.cart .circle {
+          background: red;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          font-size: 12px;
+          border-radius: 50%;
+          text-align: center;
+          color: blue;
+          position: absolute;
+          left: 12px;
+          top: -7px; }
+  nav .nav-links .nav-items.left {
+    float: left;
+    padding: 0.875rem 0 0 1.25rem; }
+  nav .nav-links .nav-items.right {
+    float: right;
+    padding: 0.875rem 1.25rem 0 0; }
 
 #drop-menu {
   background: #ffffff;
@@ -175,7 +211,7 @@ nav {
   opacity: 0.9; }
   #drop-menu a {
     position: relative;
-    color: #A0CCE3;
+    color: #ffffff;
     text-align: center;
     display: block;
     padding: 7px 0;
@@ -183,7 +219,7 @@ nav {
     text-transform: uppercase;
     text-decoration: none; }
     #drop-menu a.active, #drop-menu a:hover {
-      color: #F66464; }
+      color: #00BBF0; }
     #drop-menu a:first-of-type {
       margin-top: 15px; }
 

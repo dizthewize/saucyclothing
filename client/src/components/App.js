@@ -7,11 +7,13 @@ import {
 import { connect } from 'react-redux'
 import * as actions from '../actions';
 import Layout from './Layout'
-import NotFound from './NotFound'
+import NotFound from './NotFound';
 import NavBar from './Navbar';
 import DropMenu from './DropMenu';
 import LoginForm from './forms/LoginForm';
 import RegisterForm from './forms/RegisterForm';
+import About from './About';
+import Contact from './Contact';
 
 class App extends Component {
 
@@ -34,6 +36,9 @@ class App extends Component {
                 <Route exact path='/' component={Layout} />
                 <Route path='/login' component={LoginForm} />
                 <Route path='/register' component={RegisterForm}/>
+                <Route path='/about' component={About}/>
+                <Route exact path='/contact' component={Contact}/>
+                
                 <Route component={NotFound} />
               </Switch>
             </div>

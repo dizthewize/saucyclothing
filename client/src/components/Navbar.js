@@ -11,17 +11,28 @@ class NavBar extends Component {
         return;
       case false:
         return (
-          <ul id="nav-items">
-            <li className="nav-item nav-link"><NavLink to="/login" activeClassName="active">Login</NavLink></li>
-            <li className="nav-item nav-link"><NavLink to="/register" activeClassName="active">Register</NavLink></li>
-          </ul> 
+          <div className="nav-links">
+            <ul className="nav-items right">
+              <li className="nav-item right"><NavLink to="/login" activeClassName="active">Login</NavLink></li>
+              <li className="nav-item right"><NavLink to="/register" activeClassName="active">Register</NavLink></li>
+            </ul>
+          </div>
         );
       default:
         return (
-          <ul id="nav-items">
-            <li className="nav-item"><h3>Welcome <span style={{textTransform: 'uppercase'}}>{this.props.user.firstName}</span></h3></li>
-            <li className="nav-item nav-link"><a href="/api/logout">Logout</a></li>
-          </ul>
+          <div className="nav-links">
+            <ul className="nav-items left">
+              <li className="nav-item left"><NavLink exact to="/" activeClassName="active">Home</NavLink></li>
+              <li className="nav-item left"><NavLink to="/about" activeClassName="active">About</NavLink></li>
+              <li className="nav-item left"><NavLink to="/contact" activeClassName="active">Contact</NavLink></li>
+            </ul>
+
+            <ul className="nav-items right">
+              <li className="nav-item right"><p>Welcome <span>{this.props.user.firstName}</span></p></li>
+              <li className="nav-item right cart"><i className="fas fa-cart-arrow-down"></i> <span className="circle">5</span></li>
+              <li className="nav-item right"><a href="/api/logout">Logout</a></li>
+            </ul>
+          </div>
         );
     }
   }
@@ -29,8 +40,8 @@ class NavBar extends Component {
   render() {
     return (
       <nav>
-        <div className="logo">
-          <Link to="/" className="nav-link"><h2>Hello</h2></Link>
+        <div id="nav-logo">
+          <Link to="/" id="logo"><h2>Saucy Tees</h2></Link>
         </div>
         {this.renderHeader()}
       </nav>
