@@ -60,11 +60,12 @@
     }
     
     .slide-arrow.right {
-      right: 1rem;
+      right: 7rem;
     }
     
     .slide-arrow.left {
-      left: 1rem;
+      // make both 4rem for ipad screen size query
+      left: 7rem;
     }
   }
   
