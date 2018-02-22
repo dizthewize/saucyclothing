@@ -281,8 +281,8 @@ nav {
     width: 100%;
     overflow: hidden; }
     .carousel-container .carousel .slide {
-      width: 300px;
-      height: 300px;
+      width: 400px;
+      height: 400px;
       margin: auto; }
       .carousel-container .carousel .slide .image {
         overflow: hidden;
@@ -292,6 +292,7 @@ nav {
         opacity: 0.8;
         transition: transform 3s; }
         .carousel-container .carousel .slide .image:hover {
+          z-index: 1;
           opacity: 1;
           transform: scale(1.15); }
     .carousel-container .carousel .slide-arrow {
