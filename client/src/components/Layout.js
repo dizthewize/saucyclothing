@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import ImgSlider from './Slider';
+import ProductGrid from './ProductGrid';
+import Carousel from './carousel/Carousel';
 
 class Layout extends Component {
   
   render() {
     return (
       <div className="layout">
-        <ImgSlider />
+        <Carousel />
+        <ProductGrid />
       </div>
     );
   }
