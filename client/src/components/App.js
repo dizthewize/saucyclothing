@@ -14,6 +14,7 @@ import LoginForm from './forms/LoginForm';
 import RegisterForm from './forms/RegisterForm';
 import About from './About';
 import Contact from './Contact';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -42,6 +43,7 @@ class App extends Component {
                 <Route component={NotFound} />
               </Switch>
             </div>
+            <Footer />
           </div>
         </BrowserRouter>
       </div>

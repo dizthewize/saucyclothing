@@ -1,0 +1,27 @@
+#footer {
+  height: 300px;
+  width: 100%;
+  margin: -50px auto;
+  position: relative;
+  background: $darkBlue;
+  text-align: center;
+  color: $white;
+
+
+  .footer-title {
+    margin: 0;
+    font-family: $headerFont;
+    position: absolute;
+    font-size: 200px;;
+    top: 0%;
+    letter-spacing: 85px;
+  }
+
+  ul {
+    padding: 10px 0 0 15px;
+    .address-text {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}

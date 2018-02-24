@@ -254,6 +254,27 @@ nav {
     #menu-btn span:nth-child(3) {
       width: 50%; }
 
+#footer {
+  height: 300px;
+  width: 100%;
+  margin: -50px auto;
+  position: relative;
+  background: #00204A;
+  text-align: center;
+  color: #ffffff; }
+  #footer .footer-title {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    position: absolute;
+    font-size: 200px;
+    top: 0%;
+    letter-spacing: 85px; }
+  #footer ul {
+    padding: 10px 0 0 15px; }
+    #footer ul .address-text {
+      float: left;
+      margin-right: 10px; }
+
 .layout {
   display: grid;
   grid-gap: 20px; }
@@ -262,7 +283,7 @@ nav {
   height: 500px;
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0 auto 35px;
   position: relative; }
   .carousel-container h2 {
     text-align: center;
@@ -279,7 +300,8 @@ nav {
   .carousel-container .carousel {
     height: 100%;
     width: 100%;
-    overflow: hidden; }
+    overflow: hidden;
+    padding: 30px 0; }
     .carousel-container .carousel .slide {
       width: 400px;
       height: 400px;
@@ -296,7 +318,7 @@ nav {
           opacity: 1;
           transform: scale(1.15); }
     .carousel-container .carousel .slide-arrow {
-      color: red;
+      color: #005792;
       cursor: pointer;
       font-size: 2rem;
       position: absolute;
@@ -321,3 +343,32 @@ nav {
       transition: transform 1.5s; }
       .grid-container .image-grid img:hover {
         transform: scale(1.15); }
+
+#video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1650px;
+  margin: 0 auto;
+  height: 800px; }
+  #video-container .drip-bg {
+    position: absolute;
+    top: -50px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0.8; }
+  #video-container .saucy {
+    margin-top: 0;
+    position: absolute;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    top: -52px;
+    left: -74px;
+    text-shadow: 3px 1px 2px #969696; }
+  #video-container .video-layer {
+    width: 628px;
+    position: relative; }
+    #video-container .video-layer .video-react {
+      left: 344px;
+      top: 150px; }
