@@ -13,7 +13,7 @@ import DropMenu from './DropMenu';
 import LoginForm from './forms/LoginForm';
 import RegisterForm from './forms/RegisterForm';
 import About from './About';
-import Contact from './Contact';
+import LookBook from './LookBook';
 import Footer from './Footer';
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
                 <Route path='/login' component={LoginForm} />
                 <Route path='/register' component={RegisterForm}/>
                 <Route path='/about' component={About}/>
-                <Route exact path='/contact' component={Contact}/>
+                <Route exact path='/contact' component={LookBook}/>
                 
                 <Route component={NotFound} />
               </Switch>

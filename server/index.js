@@ -3,9 +3,11 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser =  require('body-parser');
 const cookieSession = require('cookie-session');
-const passport = require('passport')
+const passport = require('passport');
 // uncomment keys if using env variables
 const keys = require('../config/keys');
+
+const multer     = require('multer');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
@@ -22,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./models/User');
+require('./models/Product');
 
 require('./services/passport')(passport);
 

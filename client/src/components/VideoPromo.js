@@ -6,12 +6,13 @@ class VideoPromo extends Component {
   render () {
     return (
       <section id="video-container">
-        <img className="drip-bg" src="../../img/drip.png" />
-        <h2 className="saucy">Saucy</h2>
         <div className="video-layer">
           <Player
             src="../../vid/video-promo.mp4"
            />
+        </div>
+        <div>
+          <h2>Coming soon...</h2>
         </div>
       </section>
     )

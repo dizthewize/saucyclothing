@@ -95,42 +95,16 @@
 }
 
 #video-container {
-  position: relative;
-  width: 100%;
-  max-width: 1650px;
-  margin: 0 auto;
-  height: 800px;
-
-  .drip-bg {
-    position: absolute;
-    top: -50px;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    z-index: -1;
-    opacity: 0.8;
-  }
-
-  .saucy {
-    margin-top: 0;
-    position: absolute;
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    top: -52px;
-    left: -74px;
-    // once scroll position reach 
-    // left = 105px;
-    text-shadow: 3px 1px 2px rgba(150, 150, 150, 1);
-  }
+  background: $lightBlue;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+  color: $white;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 
   .video-layer {
     width: 628px;
-    position: relative;
-
-    .video-react {
-      left: 344px;
-      top: 150px;
-    }
   }
 }
 
