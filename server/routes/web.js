@@ -27,9 +27,8 @@ module.exports = app => {
             } else {
               filename = req.file.filename;
               const newProduct = new Product({
-                title: req.body.title,
+                name: req.body.title,
                 description: req.body.description,
-                size: req.body.size,
                 price: req.body.price,
                 imgPath: filename
               });

@@ -6,7 +6,6 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-
     case ADMIN_USERS:
       return { ...state, users: action.payload }
       

@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
-import customersReducer from './customersReducer';
-import adminReducer from './adminReducer';
-import userReducer from './userReducer';
+import admin from './adminReducer';
+import user from './userReducer';
+import cart from './cartReducer';
 
 
 const rootReducer = combineReducers({
-  customers: customersReducer,
-  admin: adminReducer,
-  user: userReducer
+  admin,
+  user,
+  cart
 });
 
 export default rootReducer;

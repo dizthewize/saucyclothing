@@ -15,6 +15,8 @@ import RegisterForm from './forms/RegisterForm';
 import About from './About';
 import LookBook from './LookBook';
 import Footer from './Footer';
+import Product from './Product';
+import Cart from './Cart';
 
 class App extends Component {
 
@@ -38,8 +40,9 @@ class App extends Component {
                 <Route path='/login' component={LoginForm} />
                 <Route path='/register' component={RegisterForm}/>
                 <Route path='/about' component={About}/>
-                <Route exact path='/contact' component={LookBook}/>
-                
+                <Route exact path='/lookbook' component={LookBook}/>
+                <Route path='/product/:id' component={Product}/>
+                <Route path='/cart' component={Cart} />
                 <Route component={NotFound} />
               </Switch>
             </div>

@@ -29,7 +29,9 @@ class NavBar extends Component {
 
             <ul className="nav-items right">
               <li className="nav-item right"><p>Welcome <span>{this.props.user.firstName}</span></p></li>
-              <li className="nav-item right cart"><i className="fas fa-cart-arrow-down"></i> <span className="circle">5</span></li>
+              <li className="nav-item right cart"><Link to="/cart">
+              <i className="fas fa-cart-arrow-down"></i> <span className="circle">5</span>
+              </Link></li>
               <li className="nav-item right"><a href="/api/logout">Logout</a></li>
             </ul>
           </div>
