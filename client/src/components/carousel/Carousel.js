@@ -49,10 +49,10 @@ class Carousel extends Component {
 }
 
 const imgUrls = [
-	"/img/lakertee.jpg", 
+	"/img/lakertee.png", 
 	"/img/london.png",
-	"/img/samplnyc.png",
-	"/img/samplbraves.jpg"
+	"/img/samplhornetspullover.png",
+	"/img/samplbraves.png"
 ];
 
 export default Carousel;

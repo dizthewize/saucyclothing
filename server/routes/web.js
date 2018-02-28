@@ -4,46 +4,39 @@ const multer = require('multer');
 
 module.exports = app => {
   app.post('/api/product', (req, res) => {
-    Product.findOne({ title: req.body.title})
-      .then(product => {
-        if (product) {
-          console.log('Product already exists')
-        } else {
-          const storage = multer.diskStorage({
-            // TODO: Change path after build setup
-            destination: './client/public/img/',
-            filename: (req, file, cb) => {
-              cb(null, file.originalname);
-            }
-          });
-      
-          const upload = multer({
-            storage: storage
-          }).single('imageFile');
-      
-          upload(req, res, (err) => {
-            if (err) {
-              console.log(err, 'project not saved');
-            } else {
-              filename = req.file.filename;
-              const newProduct = new Product({
-                name: req.body.title,
-                description: req.body.description,
-                price: req.body.price,
-                imgPath: filename
-              });
+    const storage = multer.diskStorage({
+      // TODO: Change path after build setup
+      destination: './client/public/img/',
+      filename: (req, file, cb) => {
+        cb(null, file.originalname);
+      }
+    });
 
-              newProduct.save()
-                .then(product => {
-                  console.log('new product saved');
-                })
-                .catch(err => {
-                  console.log(err);
-                });
-            }
+    const upload = multer({
+      storage: storage
+    }).single('imgPath');
+
+    upload(req, res, (err) => {
+      if (err) {
+        console.log(err, 'product not saved');
+      } else {
+        filename = req.file.filename;
+        const newProduct = new Product({
+          name: req.body.name,
+          description: req.body.description,
+          price: req.body.price,
+          imgPath: filename
+        });
+
+        newProduct.save()
+          .then(product => {
+            console.log('new product saved');
           })
-        }
-      });
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    })
   });
 
   app.post('/api/product_delete', (req, res) => {
