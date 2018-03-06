@@ -1,14 +1,17 @@
 #footer {
-  padding: 2.5rem;
-  margin-top: 2rem;
   background: $darkBlue;
   text-align: center;
   color: $white;
 
-  ul {
-    .address-text {
-      float: left;
-      margin-right: 10px;
+  .footer-container {
+    max-width: 1200px;
+    padding: 2.5rem;
+    margin: 0 auto;
+    ul {
+      .address-text {
+        float: left;
+        margin-right: 10px;
+      }
     }
   }
 }

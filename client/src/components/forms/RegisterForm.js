@@ -63,14 +63,11 @@ const FormikForm = withFormik({
 
 class RegisterForm extends Component {
   handleRegister = values => {
-    const { registerUser, loginUser, user, history } = this.props;
-    const userLogin = {
-      email: values.email,
-      password: values.password
-    }
+    const { registerUser, history } = this.props;
 
     if (values) {
-      // use async function to run register then login
+      registerUser(values);
+      history.push('/');
     }
   }
   

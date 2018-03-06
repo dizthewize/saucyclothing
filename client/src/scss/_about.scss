@@ -1,0 +1,37 @@
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: $oceanBlue;
+  color: $white;
+
+  .intro {
+    .intro-text {
+      padding: 5rem;
+      text-align: center;
+    }
+  
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .description {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+  
+    .desc-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  .intro,
+  .description {
+    p {
+      font-size: 20px;
+    }
+  }
+}

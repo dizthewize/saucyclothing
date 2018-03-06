@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Arrow from './Arrows';
 import ImageSlide from './ImageSlide';
 
@@ -32,12 +33,16 @@ class Carousel extends Component {
 		this.setState({
 			currentImageIndex: index
 		});
-  }
+	}
+	
+	
   
   render () {
+		const { images } = this.props;
+		console.log(images);
     return (
 			<div className="carousel-container">
-				<h2>Saucy</h2>
+				<h2 className="carousel-text">Saucy</h2>
 				<div className="carousel">
 					<Arrow direction="left" clickFunction={ this.previousSlide } glyph="&#9664;" />
 					<ImageSlide url={ imgUrls[this.state.currentImageIndex] } />
@@ -55,4 +60,9 @@ const imgUrls = [
 	"/img/samplbraves.png"
 ];
 
-export default Carousel;
+const mapStateToProps = ({ products }) => {
+	return { images: products.images };
+}
+
+
+export default connect(mapStateToProps)(Carousel);

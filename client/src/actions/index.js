@@ -39,6 +39,7 @@ export const getProduct = id => async dispatch => {
   dispatch({type: GET_PRODUCT, payload: res.data});
 }
 
+
 export const addToCart = id => async dispatch => {
   const res = await axios.get(`/api/product?id=${id}`);
 

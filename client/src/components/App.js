@@ -21,9 +21,10 @@ import Cart from './Cart';
 class App extends Component {
 
   componentDidMount() {
-    const { adminUsers, getUser, user } = this.props;
+    const { adminUsers, getUser, user, getProducts } = this.props;
     adminUsers();
     getUser();
+    getProducts();
   }
   
   

@@ -24,16 +24,9 @@ a {
   color: $white;
 }
 
-.layout {
-  h2 {
-    margin-top: 3rem;
-    font-size: 4rem;
-    text-align: center;
-    font-weight: bold;
-  }
-}
-
 @import 'scss/navbar';
 @import 'scss/footer';
 @import 'scss/queries';
-@import 'scss/_layout.scss';
+@import 'scss/layout';
+@import 'scss/about';
+@import 'scss/lookbook';

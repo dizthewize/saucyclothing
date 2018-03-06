@@ -10,7 +10,7 @@
   margin: 0 auto 35px;
   position: relative;
 
-  h2 {
+  .carousel-text {
     text-align: center;
     margin: 0;
     font-family: $headerFont;
@@ -88,7 +88,7 @@
       transition: transform 1.5s;
   
       &:hover {
-        transform: scale(1.15);
+        transform: scale(1.1);
       }
     }
   }
@@ -96,15 +96,26 @@
 
 #video-container {
   background: $lightBlue;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 3rem;
-  color: $white;
   box-shadow: 0 4px 9px rgba(104, 104, 104, 0.8);
+  .content {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+    color: $white;
+  }
 
   .video-layer {
     width: 628px;
+  }
+
+  .promo-text {
+    margin-top: 3rem;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
   }
 }
 

@@ -144,12 +144,6 @@ a {
   text-decoration: none;
   color: #ffffff; }
 
-.layout h2 {
-  margin-top: 3rem;
-  font-size: 4rem;
-  text-align: center;
-  font-weight: bold; }
-
 nav {
   position: relative;
   background: #00BBF0;
@@ -255,14 +249,16 @@ nav {
       width: 50%; }
 
 #footer {
-  padding: 2.5rem;
-  margin-top: 2rem;
   background: #00204A;
   text-align: center;
   color: #ffffff; }
-  #footer ul .address-text {
-    float: left;
-    margin-right: 10px; }
+  #footer .footer-container {
+    max-width: 1200px;
+    padding: 2.5rem;
+    margin: 0 auto; }
+    #footer .footer-container ul .address-text {
+      float: left;
+      margin-right: 10px; }
 
 .layout {
   display: grid;
@@ -274,7 +270,7 @@ nav {
   max-width: 1400px;
   margin: 0 auto 35px;
   position: relative; }
-  .carousel-container h2 {
+  .carousel-container .carousel-text {
     text-align: center;
     margin: 0;
     font-family: "Lato", sans-serif;
@@ -331,15 +327,57 @@ nav {
       width: 100%;
       transition: transform 1.5s; }
       .grid-container .image-grid img:hover {
-        transform: scale(1.15); }
+        transform: scale(1.1); }
 
 #video-container {
   background: #00BBF0;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 3rem;
-  color: #ffffff;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8); }
+  box-shadow: 0 4px 9px rgba(104, 104, 104, 0.8); }
+  #video-container .content {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+    color: #ffffff; }
   #video-container .video-layer {
     width: 628px; }
+  #video-container .promo-text {
+    margin-top: 3rem;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold; }
+
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #005792;
+  color: #ffffff; }
+  .about .intro .intro-text {
+    padding: 5rem;
+    text-align: center; }
+  .about .intro h2 {
+    font-size: 2.5rem; }
+  .about .description {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem; }
+    .about .description .desc-text {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+  .about .intro p,
+  .about .description p {
+    font-size: 20px; }
+
+.lookbook-grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .lookbook-grid img {
+    cursor: pointer;
+    width: 100%;
+    transition: transform 1.5s; }
+    .lookbook-grid img:hover {
+      transform: scale(1.15); }
