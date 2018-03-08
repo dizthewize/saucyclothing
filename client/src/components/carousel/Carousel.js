@@ -38,8 +38,8 @@ class Carousel extends Component {
 	
   
   render () {
-		const { images } = this.props;
-		console.log(images);
+		// const { images } = this.props;
+		// console.log(images);
     return (
 			<div className="carousel-container">
 				<h2 className="carousel-text">Saucy</h2>

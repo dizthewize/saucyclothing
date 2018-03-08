@@ -14,7 +14,7 @@ nav {
 
   #nav-logo {
     position: absolute;
-    left: 44%;
+    left: 46%;
     
     #logo {
       h2 {
@@ -58,14 +58,14 @@ nav {
           cursor: pointer;
   
           .circle {
-            background: red;
+            background: $darkBlue;
             width: 16px;
             height: 16px;
             display: inline-block;
             font-size: 12px;
             border-radius: 50%;
             text-align: center;
-            color: blue;
+            color: $white;
             position: absolute;
             left: 12px;
             top: -7px;

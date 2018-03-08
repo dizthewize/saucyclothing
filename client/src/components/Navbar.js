@@ -30,7 +30,11 @@ class NavBar extends Component {
             <ul className="nav-items right">
               <li className="nav-item right"><p>Welcome <span>{this.props.user.firstName}</span></p></li>
               <li className="nav-item right cart"><Link to="/cart">
-              <i className="fas fa-cart-arrow-down"></i> <span className="circle">5</span>
+              <i className="fas fa-cart-arrow-down"></i> <span className="circle">{
+                this.props.cart.length === undefined ? 0 : 
+                this.props.cart.length
+                // Object.keys(this.props.cart).length
+              }</span>
               </Link></li>
               <li className="nav-item right"><a href="/api/logout">Logout</a></li>
             </ul>
@@ -51,8 +55,8 @@ class NavBar extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => {
-  return { user };
+const mapStateToProps = ({ user, cart }) => {
+  return { user, cart };
 }
 
 export default connect(mapStateToProps)(NavBar)

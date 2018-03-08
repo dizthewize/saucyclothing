@@ -40,15 +40,12 @@ export const getProduct = id => async dispatch => {
 }
 
 
-export const addToCart = id => async dispatch => {
-  const res = await axios.get(`/api/product?id=${id}`);
-
-  dispatch({type: ADD_TO_CART, payload: res.data});
-}
+export const addToCart = item => ({
+  type: ADD_TO_CART, shirt: item 
+})
 
 export const removeFromCart = id => ({
-  type: REMOVE_FROM_CART,
-  id
+  type: REMOVE_FROM_CART, id: id
 })
 
 export const adminUsers = () => async dispatch => {

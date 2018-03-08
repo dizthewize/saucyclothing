@@ -154,7 +154,7 @@ nav {
     color: #00204A; }
   nav #nav-logo {
     position: absolute;
-    left: 44%; }
+    left: 46%; }
     nav #nav-logo #logo h2 {
       font-weight: 700;
       font-size: 2.2rem;
@@ -179,14 +179,14 @@ nav {
         position: relative;
         cursor: pointer; }
         nav .nav-links .nav-item.right.cart .circle {
-          background: red;
+          background: #00204A;
           width: 16px;
           height: 16px;
           display: inline-block;
           font-size: 12px;
           border-radius: 50%;
           text-align: center;
-          color: blue;
+          color: #ffffff;
           position: absolute;
           left: 12px;
           top: -7px; }
@@ -348,6 +348,53 @@ nav {
     text-align: center;
     font-weight: bold; }
 
+#product {
+  max-width: 1200px;
+  margin: 0 auto; }
+  #product .product-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: 'image image image description' 'image image image buttons'; }
+    #product .product-container .image {
+      grid-area: image;
+      min-height: 300px;
+      padding: 1.2rem; }
+    #product .product-container .description {
+      grid-area: description;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      #product .product-container .description .product-name {
+        font-weight: 800;
+        font-size: 1.3rem; }
+    #product .product-container .buttons {
+      grid-area: buttons;
+      margin: 0 auto; }
+      #product .product-container .buttons .list-item {
+        float: left; }
+      #product .product-container .buttons .size-btn,
+      #product .product-container .buttons .cart-btn {
+        width: 5rem;
+        height: 2.5rem; }
+      #product .product-container .buttons .size-btn {
+        font-size: 1rem;
+        border: 0;
+        cursor: pointer;
+        background: blue; }
+      #product .product-container .buttons .cart-btn {
+        cursor: pointer;
+        color: #ffffff;
+        border: 0;
+        background: #00204A;
+        font-size: 1rem;
+        padding: 0.8rem; }
+        #product .product-container .buttons .cart-btn:hover, #product .product-container .buttons .cart-btn:focus {
+          background: #00BBF0;
+          color: black;
+          outline: 0;
+          transition: background-color 0.3s ease-out; }
+
 .about {
   max-width: 1200px;
   margin: 0 auto;
@@ -372,12 +419,40 @@ nav {
     font-size: 20px; }
 
 .lookbook-grid {
+  height: 100vh;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .lookbook-grid img {
-    cursor: pointer;
+
+#empty-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  #empty-cart h2 {
+    font-size: 2.5rem; }
+
+#cart {
+  max-width: 1100px;
+  margin: 4rem auto; }
+  #cart .cart-intro {
+    margin-bottom: 0.5rem; }
+  #cart .total {
+    margin-top: 0.5rem;
+    text-align: right; }
+  #cart table {
+    table-layout: auto;
     width: 100%;
-    transition: transform 1.5s; }
-    .lookbook-grid img:hover {
-      transform: scale(1.15); }
+    border-collapse: collapse;
+    border: 1px solid black; }
+  #cart th, #cart td {
+    border: 1px solid black; }
+  #cart td {
+    text-align: center; }
+  #cart button {
+    cursor: pointer;
+    border: 0;
+    background: transparent; }
+
+#empty-cart,
+#cart {
+  height: 100vh; }
