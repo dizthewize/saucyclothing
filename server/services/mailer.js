@@ -13,17 +13,17 @@ class Mailer extends helper.Mail {
 		this.addContent(this.body);
 		this.addRecipients();
 	}
-	formatAddresses = (recipient) => {
+	formatAddress(recipient) {
 		return new helper.Email(recipient);
 	}
-	addClickTracking = () => {
+	addClickTracking() {
 		const trackSettings = new helper.trackSettings();
 		const clickTracking = new helper.clickTracking(true, true);
 
 		trackSettings.setClickTracking(clickTracking);
 		this.addTrackSettings(trackSettings);
 	}
-	addRecipients = () => {
+	addRecipients() {
 		const personalize = new helper.Personalization();
 		personalize.addTo(this.recipients);
 		this.addPersonalization(personalize);

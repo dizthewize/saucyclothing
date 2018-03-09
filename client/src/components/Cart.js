@@ -42,8 +42,8 @@ class Cart extends Component {
     const { stripePayment, user, history } = this.props
     let userCheckOut = {
 			stripeToken: token,
-			totalCost: this.calculateTotal(this.props.cart),
-      cart: this.props.cart,
+			totalCost: this.calculateTotal(this.props.items),
+      cart: this.props.items,
       email: user.email
     }
 
@@ -53,7 +53,6 @@ class Cart extends Component {
 
   render () {
     const { items } = this.props;
-    console.log(items);
     return (
       <div className="cart-container">
         {
@@ -80,6 +79,7 @@ class Cart extends Component {
               <div className="total">
                 <h3>Total: ${this.calculateTotal(items)}</h3>
                 <StripeCheckout
+                  amount={this.calculateTotal(items) * 100}
                   token={token => this.processPayment(token)}
                   stripeKey={process.env.REACT_APP_STRIPE_KEY}
                 />

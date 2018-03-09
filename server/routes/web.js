@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('products');
 const multer = require('multer');
+const keys = require('../../config/keys');
+const stripe = require('stripe')(keys.stripeSecretKey);
+const Mailer = require('../services/mailer');
+const orderTemplate = require('../services/emailTemplates/orderTemplate');
 
 const randomOrderNumber = () => {
 	let text = "";
@@ -77,17 +81,21 @@ module.exports = app => {
 
   app.post('/api/stripe', (req, res) => {
     const { totalCost, email, cart, stripeToken } = req.body;
-    console.log(req.body);
-		// stripe.charges.create({
-		// 	amount: totalCost * 100,
-		// 	currency: 'usd',
-		// 	description: '$' + totalCost + ' for items in cart.',
-		// 	source: stripeToken.id
-		// }, (err, charge) => {
-    //   const order = {}
+		stripe.charges.create({
+			amount: totalCost * 100,
+			currency: 'usd',
+			description: '$' + totalCost + ' for items in cart.',
+			source: stripeToken.id
+		}, (err, charge) => {
+      const order = {}
+      order.title = 'Thank you for your purchase';
+      order.subject = 'saucyclothing.com';
+      order.recipient = email;
+      order.body = 'body';
+      order.orderNumber = randomOrderNumber();
 
-    //   const mailer = new Mailer(order, orderTemplate(order));
-    //   mailer.send();
-    // })
+      const mailer = new Mailer(order, orderTemplate(order));
+      mailer.send();
+    })
   });
 };
