@@ -10,14 +10,14 @@ class Cart extends Component {
     this.state = {
       // products: props.items,
       total: 0,
-
     }
   }
   
-  calculateTotal = () => {
-    const { items } = this.props;
-    let total = 0;
-    this.setState({ total });
+  calculateTotal = (cart) => {
+    return cart.reduce((total, item) => {
+      total += item.price;
+      return total
+    }, 0)
   }
 
   removeItem = id => {
@@ -39,15 +39,21 @@ class Cart extends Component {
   )
 
   processPayment = token => {
+    const { stripePayment, user, history } = this.props
     let userCheckOut = {
 			stripeToken: token,
-			totalCost: this.calculateTotal(),
-			cart: this.props.cart
+			totalCost: this.calculateTotal(this.props.cart),
+      cart: this.props.cart,
+      email: user.email
     }
+
+    stripePayment(userCheckOut)
+    history.push('/')
   }
 
   render () {
     const { items } = this.props;
+    console.log(items);
     return (
       <div className="cart-container">
         {
@@ -72,7 +78,11 @@ class Cart extends Component {
                 </tbody>
               </table>
               <div className="total">
-                <h3>Total: ${this.state.total}</h3>
+                <h3>Total: ${this.calculateTotal(items)}</h3>
+                <StripeCheckout
+                  token={token => this.processPayment(token)}
+                  stripeKey={process.env.REACT_APP_STRIPE_KEY}
+                />
               </div>
             </div>
         }
@@ -81,8 +91,9 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = ({cart}) => {
-  return { items: cart }
-}
+const mapStateToProps = ({cart, user}) => ({
+   items: cart,
+  user
+})
 
 export default connect(mapStateToProps, actions)(Cart);

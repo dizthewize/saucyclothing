@@ -76,17 +76,18 @@ module.exports = app => {
   });
 
   app.post('/api/stripe', (req, res) => {
-    const { authToken, totalCost, shippingChoice, cart, stripeToken, createdAt, arrivalDate } = req.body;
-		stripe.charges.create({
-			amount: totalCost * 100,
-			currency: 'usd',
-			description: '$' + totalCost + ' for items in cart.',
-			source: stripeToken.id
-		}, (err, charge) => {
-      const order = {}
+    const { totalCost, email, cart, stripeToken } = req.body;
+    console.log(req.body);
+		// stripe.charges.create({
+		// 	amount: totalCost * 100,
+		// 	currency: 'usd',
+		// 	description: '$' + totalCost + ' for items in cart.',
+		// 	source: stripeToken.id
+		// }, (err, charge) => {
+    //   const order = {}
 
-      const mailer = new Mailer(order, orderTemplate(order));
-      mailer.send();
-    })
+    //   const mailer = new Mailer(order, orderTemplate(order));
+    //   mailer.send();
+    // })
   });
 };

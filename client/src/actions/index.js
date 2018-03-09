@@ -55,8 +55,8 @@ export const adminUsers = () => async dispatch => {
   dispatch({type: ADMIN_USERS, payload: res.data});
 }
 
-export const stripeCheckout = values => async dispatch => {
-  const res = await axios.post('/api/stripe');
+export const stripePayment = values => async dispatch => {
+  const res = await axios.post('/api/stripe', values);
 
   dispatch({type: STRIPE_PAYMENT});
 }

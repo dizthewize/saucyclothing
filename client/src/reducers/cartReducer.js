@@ -2,11 +2,15 @@ import { ADD_TO_CART, REMOVE_FROM_CART, STRIPE_PAYMENT } from '../actions/types'
 
 const cart = localStorage.getItem('cart');
 
+// const initialState = {
+//   items: []
+// }
+
 export default (state = JSON.parse(cart) || [], action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      localStorage.setItem('cart', JSON.stringify([...state, action.shirt]));
-      return [ ...state, action.shirt ]
+      localStorage.setItem('cart', JSON.stringify([action.shirt, ...state]));
+      return [action.shirt, ...state]
     case REMOVE_FROM_CART:
       let newCart = state.filter(({id}) => id !== action.id)
       localStorage.setItem('cart', JSON.stringify(newCart))
