@@ -446,6 +446,8 @@ nav {
     border: 1px solid black; }
   #cart th, #cart td {
     border: 1px solid black; }
+  #cart th:empty:after {
+    content: "\00a0"; }
   #cart td {
     text-align: center; }
   #cart button {

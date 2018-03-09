@@ -6,7 +6,8 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   GET_PRODUCTS,
-  GET_PRODUCT
+  GET_PRODUCT,
+  STRIPE_PAYMENT
  } from './types';
 
 export const registerUser = values => async dispatch => {
@@ -52,4 +53,10 @@ export const adminUsers = () => async dispatch => {
   const res = await axios.get('/api/admin/users');
 
   dispatch({type: ADMIN_USERS, payload: res.data});
+}
+
+export const stripeCheckout = values => async dispatch => {
+  const res = await axios.post('/api/stripe');
+
+  dispatch({type: STRIPE_PAYMENT});
 }

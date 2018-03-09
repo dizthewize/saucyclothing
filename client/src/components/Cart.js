@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import StripeCheckout from 'react-stripe-checkout';
 
 class Cart extends Component {
   constructor (props) {
@@ -8,27 +9,14 @@ class Cart extends Component {
     
     this.state = {
       // products: props.items,
-      total: 0
-    }
-  }
+      total: 0,
 
-  
-  componentDidMount() {
-    this.countTotal();
-  }
-  
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.items !== this.props.items) {
-      this.countTotal()
     }
   }
   
-  countTotal = () => {
+  calculateTotal = () => {
     const { items } = this.props;
     let total = 0;
-    items.forEach(product => {
-      total = (total + product.price)
-    });
     this.setState({ total });
   }
 
@@ -49,6 +37,14 @@ class Cart extends Component {
       ))
       : null
   )
+
+  processPayment = token => {
+    let userCheckOut = {
+			stripeToken: token,
+			totalCost: this.calculateTotal(),
+			cart: this.props.cart
+    }
+  }
 
   render () {
     const { items } = this.props;
@@ -75,7 +71,9 @@ class Cart extends Component {
                     {this.showCartItems(items)}
                 </tbody>
               </table>
-              <h3 className="total">Total: ${this.state.total}</h3>
+              <div className="total">
+                <h3>Total: ${this.state.total}</h3>
+              </div>
             </div>
         }
       </div>
@@ -84,7 +82,7 @@ class Cart extends Component {
 }
 
 const mapStateToProps = ({cart}) => {
-  return {items: cart}
+  return { items: cart }
 }
 
 export default connect(mapStateToProps, actions)(Cart);

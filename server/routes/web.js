@@ -2,6 +2,15 @@ const mongoose = require('mongoose');
 const Product = mongoose.model('products');
 const multer = require('multer');
 
+const randomOrderNumber = () => {
+	let text = "";
+  	let possible = "A2BC6DE5FG3HIJKL8MNO5PQR127STUV7WXYZ9ab4cdef576ghijklmnopqrstuvwxyz0123456789";
+  	for (let i = 0; i < 12; i++) {
+   	 	text += possible.charAt(Math.floor(Math.random() * possible.length));
+  	}
+ 	return text;
+};
+
 module.exports = app => {
   app.post('/api/product', (req, res) => {
     const storage = multer.diskStorage({
@@ -64,5 +73,20 @@ module.exports = app => {
       if (err) return res.send(err);
       res.json(product);
     });
+  });
+
+  app.post('/api/stripe', (req, res) => {
+    const { authToken, totalCost, shippingChoice, cart, stripeToken, createdAt, arrivalDate } = req.body;
+		stripe.charges.create({
+			amount: totalCost * 100,
+			currency: 'usd',
+			description: '$' + totalCost + ' for items in cart.',
+			source: stripeToken.id
+		}, (err, charge) => {
+      const order = {}
+
+      const mailer = new Mailer(order, orderTemplate(order));
+      mailer.send();
+    })
   });
 };

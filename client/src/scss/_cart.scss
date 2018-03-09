@@ -32,6 +32,10 @@
     border: 1px solid black;
   }
 
+  th:empty:after{
+    content: "\00a0";
+  }
+
   td {
     text-align: center;
   }
