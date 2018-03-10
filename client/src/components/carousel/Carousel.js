@@ -34,8 +34,6 @@ class Carousel extends Component {
 			currentImageIndex: index
 		});
 	}
-	
-	
   
   render () {
 		// const { images } = this.props;

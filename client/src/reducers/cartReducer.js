@@ -16,8 +16,9 @@ export default (state = JSON.parse(cart) || [], action) => {
       localStorage.setItem('cart', JSON.stringify(newCart))
       return newCart;
     case STRIPE_PAYMENT:
+      let newState = []
 			localStorage.removeItem('cart');
-			return state;
+			return [];
     default:
       return state;
   }
