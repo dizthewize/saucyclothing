@@ -11,17 +11,21 @@ const Login = ({
   touched,
   isSubmitting
 }) => (
-  <Form style={{textAlign: 'center', marginTop: '2rem'}}>
-    <div>
-      { touched.email && errors.email && <p>{errors.email}</p>}
-      <Field type="email" name="email" placeholder="Email" />
-    </div>
-    <div>
-    { touched.password && errors.password && <p>{errors.password}</p>}
-      <Field type="password" name="password" placeholder="Password" />
-    </div>
-    <button disabled={isSubmitting}>Submit</button>
-  </Form>
+  <section className="login">
+    <Form className="user-form">
+      <div>
+        { touched.email && errors.email && <p>{errors.email}</p>}
+        <label htmlFor="email">Email</label>
+        <Field type="email" name="email" />
+      </div>
+      <div>
+      { touched.password && errors.password && <p>{errors.password}</p>}
+        <label htmlFor="password">Password</label>
+        <Field type="password" name="password"/>
+      </div>
+      <button disabled={isSubmitting}>Submit</button>
+    </Form>
+  </section>
 );
 
 // Use Formik render prop instead and pass in loginUser function

@@ -260,6 +260,29 @@ nav {
       float: left;
       margin-right: 10px; }
 
+.login .user-form {
+  width: 300px;
+  margin: 25px auto 50px; }
+  .login .user-form input {
+    display: block;
+    border: 1px solid #787878;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 25px;
+    width: 300px;
+    color: #000;
+    box-shadow: inset 0 1px 3px #ddd; }
+  .login .user-form button {
+    display: flex;
+    margin: 0 auto;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: #fff;
+    background: #00204A;
+    font-size: 16px;
+    cursor: pointer; }
+
 .layout {
   display: grid;
   grid-gap: 20px; }
@@ -312,6 +335,15 @@ nav {
       right: 7rem; }
     .carousel-container .carousel .slide-arrow.left {
       left: 7rem; }
+
+#intro {
+  text-align: center;
+  margin: 40px auto 50px;
+  padding: 4rem 6rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; }
+  #intro h2 {
+    font-size: 2.5rem; }
 
 .grid-container {
   width: 100%;
@@ -400,10 +432,10 @@ nav {
   margin: 0 auto;
   background: #005792;
   color: #ffffff; }
-  .about .intro .intro-text {
+  .about .about .about-text {
     padding: 5rem;
     text-align: center; }
-  .about .intro h2 {
+  .about .about h2 {
     font-size: 2.5rem; }
   .about .description {
     display: grid;

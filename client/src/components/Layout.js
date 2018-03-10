@@ -41,6 +41,10 @@ class Layout extends Component {
     return (
       <div className="layout">
         <Carousel />
+        <div id="intro">
+          <h2>Saucy Tees Clothing</h2>
+          <p>Saucy tees brings you the latest in modern unisex shirts. Stay ahead of the trends with an amazing range of shirt, varsity jackets, and sweaters. Offering all the latest trends at unbelievably low prices with free delivery.</p>
+        </div>
         <ProductGrid />
         <VideoPromo />
       </div>

@@ -4,8 +4,8 @@ const About = () => {
   return (
     <div className="layout">
       <div className="about">
-        <div className="intro">
-          <div className="intro-text">
+        <div className="about">
+          <div className="about-text">
             <h2>We make products for all customers, thoughtfully.</h2>
             <p>We believe that you shouldn’t have to compromise when it comes to the products you use, so ours are designed to be effective and to provide a great experience.</p>
           </div>

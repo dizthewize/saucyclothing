@@ -11,25 +11,31 @@ const Register = ({
   touched,
   isSubmitting
 }) => (
-  <Form style={{textAlign: 'center', marginTop: '2rem'}}>
-    <div>
-      { touched.firstName && errors.firstName && <p>{errors.firstName}</p>}
-      <Field type="text" name="firstName" placeholder="First Name" />
-    </div>
-    <div>
-      { touched.lastName && errors.lastName && <p>{errors.lastName}</p>}
-      <Field type="text" name="lastName" placeholder="Last Name" />
-    </div>
-    <div>
-    { touched.password && errors.password && <p>{errors.password}</p>}
-      <Field type="password" name="password" placeholder="Password" />
-    </div>
-    <div>
-      { touched.email && errors.email && <p>{errors.email}</p>}
-      <Field type="email" name="email" placeholder="Email" />
-    </div>
-    <button disabled={isSubmitting}>Submit</button>
-  </Form>
+  <section className="login">
+    <Form className="user-form">
+      <div>
+        { touched.firstName && errors.firstName && <p>{errors.firstName}</p>}
+        <label htmlFor="firstName">First Name</label>
+        <Field type="text" name="firstName" />
+      </div>
+      <div>
+        { touched.lastName && errors.lastName && <p>{errors.lastName}</p>}
+        <label htmlFor="lastName">Last Name</label>
+        <Field type="text" name="lastName" />
+      </div>
+      <div>
+      { touched.password && errors.password && <p>{errors.password}</p>}
+        <label htmlFor="password">Password</label>
+        <Field type="password" name="password"  />
+      </div>
+      <div>
+        { touched.email && errors.email && <p>{errors.email}</p>}
+        <label htmlFor="email">Email</label>
+        <Field type="email" name="email" />
+      </div>
+      <button disabled={isSubmitting}>Submit</button>
+    </Form>
+  </section>
 );
 
 // Use Formik render prop instead and pass in loginUser function
