@@ -49,11 +49,11 @@ export const removeFromCart = id => ({
   type: REMOVE_FROM_CART, id: id
 })
 
-export const adminUsers = () => async dispatch => {
-  const res = await axios.get('/api/admin/users');
+// export const adminUsers = () => async dispatch => {
+//   const res = await axios.get('/api/admin/users');
 
-  dispatch({type: ADMIN_USERS, payload: res.data});
-}
+//   dispatch({type: ADMIN_USERS, payload: res.data});
+// }
 
 export const stripePayment = values => async dispatch => {
   const res = await axios.post('/api/stripe', values);
