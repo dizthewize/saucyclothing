@@ -15,11 +15,6 @@ const multer     = require('multer');
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
-const options = {
-  key: fs.readFileSync(__dirname + '/../ssl-key.pem'),
-  cert: fs.readFileSync(__dirname + '/../ssl-cert.pem')
-}
-
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
