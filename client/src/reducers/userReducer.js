@@ -1,11 +1,14 @@
-import { CURRENT_USER } from '../actions/types';
+import { CURRENT_USER, REMOVE_USER } from '../actions/types';
 
-export default (state = null, action) => {
+const initialState = {
+  user: null
+}
+export default (state = initialState, action) => {
   switch (action.type) {
-
     case CURRENT_USER:
-      return action.payload || false;
-
+      return { ...state, user: action.user};
+    case REMOVE_USER:
+      return { ...state, user: null};;
     default:
       return state;
   }

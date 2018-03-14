@@ -1,32 +1,33 @@
 import axios from 'axios';
 import {
-  ADD_CUSTOMERS,
   CURRENT_USER,
-  ADMIN_USERS,
+  REMOVE_USER,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   GET_PRODUCTS,
   GET_PRODUCT,
-  STRIPE_PAYMENT
+  STRIPE_PAYMENT,
+  TOKEN,
+  DELETE_TOKEN
  } from './types';
 
-export const registerUser = values => async dispatch => {
-  const res = await axios.post('/api/register', values);
+// export const registerUser = values => async dispatch => {
+//   const res = await axios.post('/api/register', values);
 
-  dispatch({ type: CURRENT_USER, payload: res.data });
-}
+//   dispatch({ type: CURRENT_USER, payload: res.data });
+// }
 
-export const loginUser = values => async dispatch => {
-  const res = await axios.post('/api/login', values);
+// export const loginUser = values => async dispatch => {
+//   const res = await axios.post('/api/login', values);
 
-  dispatch({ type: CURRENT_USER, payload: res.data })
-}
+//   dispatch({ type: CURRENT_USER, payload: res.data })
+// }
 
-export const getUser = () => async dispatch => {
-  const res = await axios.get('/api/current_user');
+// export const getUser = () => async dispatch => {
+//   const res = await axios.get('/api/current_user');
 
-  dispatch({type: CURRENT_USER, payload: res.data});
-}
+//   dispatch({type: CURRENT_USER, payload: res.data});
+// }
 
 export const getProducts = () => async dispatch => {
   const res = await axios.get('/api/products');
@@ -60,3 +61,25 @@ export const stripePayment = values => async dispatch => {
 
   dispatch({type: STRIPE_PAYMENT});
 }
+
+export const getToken = (tokenReceived = '') => ({
+  type: TOKEN, tokenReceived: tokenReceived
+})
+
+export const logout = () => ({
+  type: DELETE_TOKEN, tokenRemoved: ''
+})
+
+export const getUser = user => ({
+  type: CURRENT_USER, user:user
+})
+
+export const removeUser = () => ({
+  type: REMOVE_USER
+})
+
+// export const getUser = token => async dispatch => {
+//   const res = await axios.get(`/api/current_user/${token}`);
+
+//   dispatch({type: CURRENT_USER, payload: res.data});
+// }

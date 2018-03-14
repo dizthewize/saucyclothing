@@ -2,6 +2,16 @@
 @import 'scss/reset';
 @import 'scss/vars';
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  // margin bottom to move footer at bottom
+  margin-bottom: 80px;
+}
+
 * {
   box-sizing: border-box;
 }

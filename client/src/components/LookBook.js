@@ -1,5 +1,4 @@
 import React from 'react';
-import Lightbox from 'react-images';
 
 const LookBook = () => {
   return (
@@ -7,13 +6,13 @@ const LookBook = () => {
       <div className="grid-container">
         <div className="lookbook-grid">
           <div>
-            <img src="/img/about-image.jpg" alt=""/>
+            <img src="/img/about-image.jpg" />
           </div>
           <div>
-            <img src="/img/about-image2.jpg" alt=""/>
+            <img src="/img/about-image2.jpg" />
           </div>
           <div>
-            <img src="/img/about-image3.jpg" alt=""/>
+            <img src="/img/about-image3.jpg" />
           </div>
         </div>
       </div>

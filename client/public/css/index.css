@@ -127,6 +127,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  margin-bottom: 80px; }
+
 * {
   box-sizing: border-box; }
 
@@ -248,15 +255,19 @@ nav {
     #menu-btn span:nth-child(3) {
       width: 50%; }
 
-#footer {
+#footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
   background: #00204A;
   text-align: center;
   color: #ffffff; }
-  #footer .footer-container {
+  #footer-container #footer {
     max-width: 1200px;
     padding: 2.5rem;
     margin: 0 auto; }
-    #footer .footer-container ul .address-text {
+    #footer-container #footer ul .address-text {
       float: left;
       margin-right: 10px; }
 
@@ -451,15 +462,12 @@ nav {
     font-size: 20px; }
 
 .lookbook-grid {
-  height: 100vh;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 
 #empty-cart {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+  margin: 14rem auto; }
   #empty-cart h2 {
     font-size: 2.5rem; }
 
@@ -486,7 +494,3 @@ nav {
     cursor: pointer;
     border: 0;
     background: transparent; }
-
-#empty-cart,
-#cart {
-  height: 100vh; }

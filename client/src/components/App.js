@@ -4,6 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import axios from 'axios';
 import { connect } from 'react-redux'
 import * as actions from '../actions';
 import Layout from './Layout'
@@ -21,9 +22,12 @@ import Cart from './Cart';
 class App extends Component {
 
   componentDidMount() {
-    const { getUser, user, getProducts } = this.props;
-    getUser();
+    const { user, getProducts, token, getUser } = this.props;
     getProducts();
+    axios.post('/api/current_user', token)
+      .then(res => {
+        getUser(res.data.user)
+      })
   }
   
   

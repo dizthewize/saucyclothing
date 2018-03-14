@@ -1,7 +1,5 @@
 #empty-cart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 14rem auto;
 
   h2 {
     font-size: 2.5rem;
@@ -45,9 +43,4 @@
     border: 0;
     background: transparent;
   }
-}
-
-#empty-cart,
-#cart {
-  height: 100vh;
 }

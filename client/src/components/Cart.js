@@ -12,6 +12,10 @@ class Cart extends Component {
       total: 0,
     }
   }
+
+  componentWillMount() {
+		window.scrollTo(0, 0);
+	}
   
   calculateTotal = (cart) => {
     return cart.reduce((total, item) => {
@@ -54,7 +58,7 @@ class Cart extends Component {
   render () {
     const { items } = this.props;
     return (
-      <div className="cart-container">
+      <div>
         {
           items.length === 0 ? 
             <div id="empty-cart">

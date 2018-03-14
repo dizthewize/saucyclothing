@@ -1,9 +1,13 @@
-#footer {
+#footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
   background: $darkBlue;
   text-align: center;
   color: $white;
 
-  .footer-container {
+  #footer {
     max-width: 1200px;
     padding: 2.5rem;
     margin: 0 auto;

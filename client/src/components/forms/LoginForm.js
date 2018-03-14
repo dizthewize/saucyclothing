@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import axios from 'axios';
 import { withFormik, Form, Field } from "formik";
 import Yup from "yup";
 import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { getToken, getUser } from '../../actions';
 
 const Login = ({
   values,
@@ -57,12 +58,15 @@ const FormikForm = withFormik({
 class LoginForm extends Component {
 
   handleLogin = values => {
-    const { loginUser, user, history } = this.props;
+    const { user, history, getToken, getUser } = this.props;
 
-    if (values) {
-      loginUser(values);
-      history.push('/');
-    }
+    axios.post('/api/login', values)
+      .then(res => {
+        getToken(res.data.token);
+        getUser(res.data.user);
+        const jwtToken = localStorage.setItem('jwtToken', JSON.stringify(res.data.token))
+        history.push('/');
+      });
   }
   
   render() {
@@ -80,5 +84,9 @@ const mapStateToProps = ({ user }) => {
   return { user };
 }
 
+const mapDispatchToProps = {
+  getToken,
+  getUser
+}
 
-export default connect(mapStateToProps, actions)(withRouter(LoginForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginForm));
